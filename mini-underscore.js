@@ -70,6 +70,30 @@
 
     }
 
+    function createReduce(dir) {
+
+        function iterator (obj,iteratee,memo,keys,index,length) {
+            for (; index >=0 && index < length; index += dir) {
+                var currentKey = keys ? keys[index] : index ;
+                memo = iteratee(memo,obj[currentKey],currentKey,obj);
+            }
+            return memo;
+        }
+
+        return function (obj,iteratee,memo,context) {
+            iteratee = optimizeCb(iteratee,context);
+            
+            var keys = !isArrayLike(obj) && _.keys(obj),
+            length = (keys || obj).length,
+            index = dir > 0 ? 0 : length - 1;
+            
+            return iterator(obj,iteratee,memo,keys,index,length);
+        }
+
+    }
+
+    _.reduce = createReduce(1);
+
     // ----------------------------------------------- //
     _.keys = function(obj) {
         if (!_.isObject(obj)) return [];
