@@ -9,8 +9,8 @@
 
     var nativeKeys = Object.keys;
 
-    var optimizeCb = function (func) {
-        return func;
+    var optimizeCb = function (func,context) {
+        if (context === void 0) return func;
     }
 
     var cb = function (value) {
@@ -32,7 +32,26 @@
         return typeof length === 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
     }
 
-    // ----------------------------------------------- //
+    // ----- Collections ----- //
+
+    _.each = function (obj,iteratee,context) {
+        iteratee = optimizeCb(iteratee,context);
+
+        var i,length;
+
+        if (isArrayLike(obj)) {
+            for (i=0, length = obj.length; i < length; i++) {
+                iteratee(obj[i],i,obj);
+            }
+        }else {
+            var keys = _.keys(obj);
+            for (i=0; i < keys.length; i++) {
+                iteratee(obj[keys[i]],keys[i],obj);
+            }
+        }
+
+        return obj;
+    }
 
     _.map = function (obj,iteratee) {
         
