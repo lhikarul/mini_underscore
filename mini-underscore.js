@@ -94,6 +94,18 @@
 
     _.reduce = createReduce(1);
 
+    _.filter = function (obj,predicate,context) {
+        var result = [];
+
+        predicate = cb(predicate);
+
+        _.each(obj,function (val) {
+            if (predicate(val)) result.push(val)
+        })
+
+        return result;
+    }
+
     // ----------------------------------------------- //
     _.keys = function(obj) {
         if (!_.isObject(obj)) return [];

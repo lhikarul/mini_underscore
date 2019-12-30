@@ -42,3 +42,12 @@ _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);
 _.reduce({one:1,two:22,three:8}, function(memo, num){ return memo + num; }, 0);
 => 31
 ```
+
+#### filter _.filter(list,predicate)
+
+遍歷 list 中的每個值，通過 predicate 真值檢測，返回一個新的陣列
+
+```
+_.filter([1, 2, 3, 4, 5, 6, 7, 8, 9], function(num){ return num % 2 == 0; });
+=> 2,4,6,8
+```
