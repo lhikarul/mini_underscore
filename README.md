@@ -5,11 +5,11 @@
 分析 underscore 的源碼， 理解不同的 API 函式內部原理，並實作一個 mini-underscore。
 
 ## 目錄
-[each](#each)
-[map](#map)
-[reduce](#reduce)
-[filter](#filter)
-[find](#find)
+[each](#each)</br>
+[map](#map)</br>
+[reduce](#reduce)</br>
+[filter](#filter)</br>
+[find](#find)</br>
 
 ## collections 相關
 
