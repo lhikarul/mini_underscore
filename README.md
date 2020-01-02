@@ -13,7 +13,7 @@
 
 ## collections 相關
 
-<h4 id="#each"> each _.each(list,iteratee) </h4>
+<h4 id="each"> each _.each(list,iteratee) </h4>
 
 遍歷 list 中的每個元素
 
@@ -25,7 +25,7 @@ _.each({one: 1, two: 2, three: 3}, function(el,key,obj){...});
 
 ```
 
-<h4 id="#map"> map _.map(list,iteratee) </h4>
+<h4 id="map"> map _.map(list,iteratee) </h4>
 
 將 list 的每個元素，通過轉換函數(iteratee 迭代器)，生成一個與之相對應的陣列
 
@@ -50,7 +50,7 @@ _.reduce({one:1,two:22,three:8}, function(memo, num){ return memo + num; }, 0);
 => 31
 ```
 
-<h4 id="#filter"> filter _.filter(list,predicate) </h4>
+<h4 id="filter"> filter _.filter(list,predicate) </h4>
 
 遍歷 list 中的每個值，通過 predicate 真值檢測，返回一個新的陣列
 
@@ -59,7 +59,7 @@ _.filter([1, 2, 3, 4, 5, 6, 7, 8, 9], function(num){ return num % 2 == 0; });
 => 2,4,6,8
 ```
 
-<h4 id="#find"> _.find(list,predicate) </h4>
+<h4 id="find"> _.find(list,predicate) </h4>
 
 遍歷 list 中的每個值，返回第一個通過 predicate(cb) 真值檢測的元素。
 
