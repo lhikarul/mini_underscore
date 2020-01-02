@@ -106,11 +106,46 @@
         return result;
     }
 
-    // ----------------------------------------------- //
+    _.find = function (obj,predicate,context) {
+        var key;
+        if (isArrayLike(obj)) {
+            key = _.findIndex(obj,predicate,context);
+        }else {
+            key = _.findKey(obj,predicate,context);
+        }
+
+        if (key !== void 0 && key !== -1) return obj[key];
+    }
+
+    // ----- Arrays ----- //
+    function createPredicateIndexFinder(dir) {
+        return function (array,predicate,context) {
+            predicate = cb(predicate,context);
+            var length = getLength(array);
+            var index = dir > 0 ? 0 : length - 1;
+            for (; index >=0 && index < length; index += dir) {
+                if (predicate(array[index], index, array)) return index;
+            }
+            return -1;
+        }
+    }
+    
+    _.findIndex = createPredicateIndexFinder(1);
+
+    // ----- Objects ----- //
     _.keys = function(obj) {
         if (!_.isObject(obj)) return [];
         if (nativeKeys) return nativeKeys(obj);
     };
+
+    _.findKey = function (obj,predicate,context) {
+        predicate = cb(predicate, context);
+        var keys = _.keys(obj), key;
+        for ( var i=0, length = keys.length; i < length; i++) {
+            key = keys[i];
+            if (predicate(obj[key], key, obj)) return key;
+        }
+    }
 
     _.isFunction = function (obj) {
         return typeof obj === 'function'
