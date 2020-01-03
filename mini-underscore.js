@@ -94,6 +94,8 @@
 
     _.reduce = createReduce(1);
 
+    _.reduceRight = createReduce(-1);
+
     _.filter = function (obj,predicate,context) {
         var result = [];
 

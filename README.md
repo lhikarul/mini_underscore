@@ -8,6 +8,7 @@
 [each](#each)</br>
 [map](#map)</br>
 [reduce](#reduce)</br>
+[reduceRight](#reduceRight)</br>
 [filter](#filter)</br>
 [find](#find)</br>
 
@@ -50,6 +51,19 @@ _.reduce({one:1,two:22,three:8}, function(memo, num){ return memo + num; }, 0);
 => 31
 ```
 
+<h4 id="reduceRight">_.reduceRight(list,iteratee,memo)</h4>
+
+遍歷 list 中的元素，從右側開始組合元素。
+
+```
+ var list = [[0, 1], [2, 3], [4, 5]];
+ var flat = _.reduceRight(list, function(a, b) { return a.concat(b); }, []);
+ =>  [4, 5, 2, 3, 0, 1]
+
+var obj = {a:[0,1],b:[2,3],c:[4,5]};
+var flat = _.reduceRight(obj,function(a,b){return a.concat(b)}, []);
+=>  [4, 5, 2, 3, 0, 1]
+```
 <h4 id="filter"> filter _.filter(list,predicate) </h4>
 
 遍歷 list 中的每個值，通過 predicate 真值檢測，返回一個新的陣列
