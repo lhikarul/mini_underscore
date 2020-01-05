@@ -140,6 +140,15 @@
         if (nativeKeys) return nativeKeys(obj);
     };
 
+    _.allKeys = function(obj) {
+        if (!_.isObject(obj)) return [];
+
+        var keys = [];
+        for (var key in obj) keys.push(key);
+
+        return keys;
+    }
+
     _.findKey = function (obj,predicate,context) {
         predicate = cb(predicate, context);
         var keys = _.keys(obj), key;
