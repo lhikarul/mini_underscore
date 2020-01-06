@@ -16,7 +16,7 @@
 
 ### objects
 [allKeys](#allKeys)</br>
-[values][#values]</br>
+[values](#values)</br>
 
 ## collections 相關
 
