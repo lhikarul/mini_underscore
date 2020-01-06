@@ -149,6 +149,18 @@
         return keys;
     }
 
+    _.values = function(obj) {
+        var keys = _.keys(obj);
+        var length = keys.length;
+        var result = new Array(length);
+  
+        for (var i=0; i<length; i++) {
+          result[i] = obj[keys[i]];
+        }
+  
+        return result;
+    }
+    
     _.findKey = function (obj,predicate,context) {
         predicate = cb(predicate, context);
         var keys = _.keys(obj), key;

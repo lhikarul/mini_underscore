@@ -16,6 +16,7 @@
 
 ### objects
 [allKeys](#allKeys)</br>
+[values][#values]</br>
 
 ## collections 相關
 
@@ -106,4 +107,13 @@ Stooge.prototype.silly = true;
 _.allKeys(new Stooge("Moe"));
 => ["name", "silly"]
 
+```
+
+<h4 id="values">_.values(object)</h4>
+
+返回 object 所有的屬性值
+
+```
+_.values({one: 1, two: 2, three: 3});
+=> [1, 2, 3]
 ```
