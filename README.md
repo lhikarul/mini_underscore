@@ -17,6 +17,7 @@
 ### objects
 [allKeys](#allKeys)</br>
 [values](#values)</br>
+[mapObject](#mapObject)</br>
 
 ## collections 相關
 
@@ -116,4 +117,14 @@ _.allKeys(new Stooge("Moe"));
 ```
 _.values({one: 1, two: 2, three: 3});
 => [1, 2, 3]
+```
+
+<h4 id="mapObject">_.mapObject(object,iteratee)</h4>
+類似於 map，但這只適用於物件，轉換每個屬性的值。
+
+```
+_.mapObject({start: 5, end: 12}, function(val, key) {
+  return val + 5;
+});
+=> {start: 10, end: 17}
 ```
