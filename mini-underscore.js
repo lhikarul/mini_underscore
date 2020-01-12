@@ -173,6 +173,18 @@
           }
           return results;
       };
+
+    _.pairs = function(obj) {
+        var keys = _.keys(obj);
+        var length = keys.length;
+        var pairs = Array(length);
+
+        for (var i=0; i<length; i++) {
+            pairs[i] = [keys[i],obj[keys[i]]];
+        }
+
+        return pairs;
+    }
     
     _.findKey = function (obj,predicate,context) {
         predicate = cb(predicate, context);

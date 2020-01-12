@@ -128,3 +128,10 @@ _.mapObject({start: 5, end: 12}, function(val, key) {
 });
 => {start: 10, end: 17}
 ```
+
+<h4 id="pairs>">_.pairs(object)</h4>
+將一個物件轉變為 [key,value] 的陣列
+```
+_.pairs({one: 1, two: 2, three: 3});
+=> [["one", 1], ["two", 2], ["three", 3]]
+```
