@@ -186,6 +186,18 @@
         return pairs;
     }
     
+    _.invert = function(obj) {
+        var result = {};
+        var keys = _.keys(obj);
+        var length = keys.length;
+
+        for (var i=0; i<length; i++) {
+            result[obj[keys[i]]] = keys[i];
+        }
+
+        return result;
+    }
+
     _.findKey = function (obj,predicate,context) {
         predicate = cb(predicate, context);
         var keys = _.keys(obj), key;

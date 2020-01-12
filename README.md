@@ -135,3 +135,11 @@ _.mapObject({start: 5, end: 12}, function(val, key) {
 _.pairs({one: 1, two: 2, three: 3});
 => [["one", 1], ["two", 2], ["three", 3]]
 ```
+
+<h4 id="invert">_.invert(object)</h4>
+返回一個物件，其 key/value 進行對調。
+
+```
+_.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
+=> {Moses: "Moe", Louis: "Larry", Jerome: "Curly"};
+```
