@@ -198,6 +198,16 @@
         return result;
     }
 
+    _.functions = function(obj) {
+        var result = [];
+
+        for (var key in obj) {
+            if (_.isFunction(obj[key])) result.push(key);
+        }
+        
+        return result.sort();
+    }
+
     _.findKey = function (obj,predicate,context) {
         predicate = cb(predicate, context);
         var keys = _.keys(obj), key;

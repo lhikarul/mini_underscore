@@ -19,7 +19,7 @@
 [values](#values)</br>
 [mapObject](#mapObject)</br>
 [paris](#pairs)</br>
-[invert][#invert]
+[invert](#invert)
 
 ## collections 相關
 
@@ -145,4 +145,20 @@ _.pairs({one: 1, two: 2, three: 3});
 ```
 _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 => {Moses: "Moe", Louis: "Larry", Jerome: "Curly"};
+```
+
+<h4 id="functions>">_.functions(object)</h4>
+返回一個物件內的所有 function 名稱，並且已經排序。
+
+```
+  var person = {
+      name: 'Evans',
+      age: 26,
+      studying() {},
+      greeting () {},
+      working () {}
+  }
+
+  _.functions(person)
+  => ["greeting", "studying", "working"]
 ```
