@@ -20,6 +20,8 @@
 [mapObject](#mapObject)</br>
 [paris](#pairs)</br>
 [invert](#invert)
+[findKey](#findKey)</br>
+[extend](#extend)</br>
 
 ## collections 相關
 
@@ -161,4 +163,14 @@ _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 
   _.functions(person)
   => ["greeting", "studying", "working"]
+```
+
+<h4 id="findKey">_.findKey</h4>
+
+<h4 id="extend">_.extend(destination,sources)</h4>
+複製source對像中的所有屬性覆蓋到destination對像上，並且返回 destination 對象. 複製是按順序的, 所以後面的對象屬性會把前面的對象屬性覆蓋掉(如果有重複).
+
+```
+_.extend({name: 'moe'}, {age: 50});
+=> {name: 'moe', age: 50}
 ```
