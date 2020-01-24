@@ -149,6 +149,28 @@
         }
     }
     
+    var flatten = function(input,shallow,strict,startIndex) {
+        var output = [], idx = 0;
+        for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
+            var value = input[i];
+            if (isArrayLike(value) && _.isArray(value)) {
+                if (!shallow) value = flatten(value, shallow, strict);
+                var j = 0; len = value.length;
+                output.length += len;
+                while (j < len) {
+                    output[idx++] = value[j++];
+                }
+            }else if (!strict) {
+                output[idx++] = value;
+            }
+        }
+        return output;
+    }
+
+    _.flatten = function (array, shallow) {
+        return flatten(array, shallow, false);
+    }
+
     _.findIndex = createPredicateIndexFinder(1);
 
     // ----- Objects ----- //
@@ -236,6 +258,32 @@
 
     _.extend = createAssigner(_.allKeys);
 
+    _.extendOwn = createAssigner(_.keys);
+
+    _.pick = function(object,oiteratee,context) {
+        var result = {}, obj = object, iteratee, keys;
+
+        if (obj == null) return result;
+
+        if (_.isFunction(oiteratee)) {
+            keys = _.allKeys(obj);
+            iteratee = optimizeCb(oiteratee,context);
+        }else {
+            keys = flatten(arguments, false, false, 1);
+            iteratee = function(value,key,obj) {return key in obj};
+            obj = Object(obj);
+        }
+
+        for (var i=0, length = keys.length; i < length; i++) {
+            var key = keys[i];
+            var value = obj[key];
+            if (iteratee(value,key,obj)) result[key] = value;
+        }
+
+        return result;
+
+    }
+
     _.isFunction = function (obj) {
         return typeof obj === 'function'
     }
@@ -243,6 +291,10 @@
     _.isObject = function (obj) {
         var type = typeof obj;
         return type === 'function' || type === 'object' && !!obj;
+    }
+
+    _.isArray = function(obj) {
+        return typeof obj === "array";
     }
 
 }.call(this));

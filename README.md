@@ -14,6 +14,9 @@
 [filter](#filter)</br>
 [find](#find)</br>
 
+### array
+[flatten](#flatten)</br>
+
 ### objects
 [allKeys](#allKeys)</br>
 [values](#values)</br>
@@ -22,6 +25,8 @@
 [invert](#invert)
 [findKey](#findKey)</br>
 [extend](#extend)</br>
+[extendOwn](#extendOwn)</br>
+[pick](#pick)</br>
 
 ## collections 相關
 
@@ -98,6 +103,19 @@ _.find({one:1,two:22,three:8}, function(num){ return num % 2 == 0; });
 
 ```
 
+## Array
+<h4 id="flatten">_.flatten(array, [shallow])</h4>
+
+將一個嵌套多層的數組 array（數組） (嵌套可以是任何層數)轉換為只有一層的數組。如果你傳遞 shallow參數，數組將只減少一維的嵌套。
+
+```
+_.flatten([1, [2], [3, [[4]]]]);
+=> [1, 2, 3, 4];
+
+_.flatten([1, [2], [3, [[4]]]], true);
+=> [1, 2, 3, [[4]]];
+```
+
 ## Objects
 
 <h4 id="allKeys">_.allKeys(object)</h4>
@@ -165,7 +183,7 @@ _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
   => ["greeting", "studying", "working"]
 ```
 
-<h4 id="findKey">_.findKey</h4>
+<h4 id="findKey">_.findKey(object, predicate)</h4>
 
 <h4 id="extend">_.extend(destination,sources)</h4>
 複製source對像中的所有屬性覆蓋到destination對像上，並且返回 destination 對象. 複製是按順序的, 所以後面的對象屬性會把前面的對象屬性覆蓋掉(如果有重複).
@@ -173,4 +191,20 @@ _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 ```
 _.extend({name: 'moe'}, {age: 50});
 => {name: 'moe', age: 50}
+```
+
+<h4 id="extendOwn">_.extendOwn(destination,source)</h4>
+指複製自己的屬性至 destination 物件，原型鏈的屬性不會一併複製。
+
+<h4 id="pick">_.pick(object,keys)</h4>
+
+返回一個物件，只過濾 keys 指定的屬性，或接收一個函數所指定的 key。
+
+```
+_.pick({name: 'moe', age: 50, userid: 'moe1'}, 'name', 'age');
+=> {name: 'moe', age: 50}
+_.pick({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {
+  return _.isNumber(value);
+});
+=> {age: 50}
 ```
