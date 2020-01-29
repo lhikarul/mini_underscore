@@ -173,6 +173,13 @@
 
     _.findIndex = createPredicateIndexFinder(1);
 
+    // ----- functions ----- //
+    _.negate = function(predicate) {
+        return function() {
+            return !predicate.apply(this,arguments);
+        }
+    }
+
     // ----- Objects ----- //
     _.keys = function(obj) {
         if (!_.isObject(obj)) return [];
@@ -283,6 +290,8 @@
         return result;
 
     }
+
+    _.defaults = createAssigner(_.allKeys,true);
 
     _.isFunction = function (obj) {
         return typeof obj === 'function'

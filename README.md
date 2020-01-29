@@ -208,3 +208,14 @@ _.pick({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {
 });
 => {age: 50}
 ```
+
+<h4 id="defaults">_.defaults(object,defaults)</h4>
+
+用defaults對象填充object 中的undefined屬性。並且返回這個object。一旦這個屬性被填充，再使用defaults方法將不會有任何效果。
+
+```
+var iceCream = {flavor: "chocolate"};
+_.defaults(iceCream, {flavor: "vanilla", sprinkles: "lots"});
+=> {flavor: "chocolate", sprinkles: "lots"}
+
+```
