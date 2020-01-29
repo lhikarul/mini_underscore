@@ -27,6 +27,8 @@
 [extend](#extend)</br>
 [extendOwn](#extendOwn)</br>
 [pick](#pick)</br>
+[defaults](#defaults)</br>
+[clone](#clone)</br>
 
 ## collections 相關
 
@@ -218,4 +220,13 @@ var iceCream = {flavor: "chocolate"};
 _.defaults(iceCream, {flavor: "vanilla", sprinkles: "lots"});
 => {flavor: "chocolate", sprinkles: "lots"}
 
+```
+
+<h4 id="clone">_.clone(object)</h4>
+
+創建一個淺複製（淺拷貝）的 object。任何嵌套的物件或陣列都通過引用拷貝，不會復制。
+
+```
+_.clone({name: 'moe'});
+=> {name: 'moe'};
 ```

@@ -8,6 +8,7 @@
     root._ = _;
 
     var nativeKeys = Object.keys;
+    var nativeIsArray = Array.isArray
 
     var optimizeCb = function (func,context) {
         if (context === void 0) return func;
@@ -293,6 +294,11 @@
 
     _.defaults = createAssigner(_.allKeys,true);
 
+    _.clone = function(obj) {
+        if (!_.isObject(obj)) return obj;
+        return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+    };
+
     _.isFunction = function (obj) {
         return typeof obj === 'function'
     }
@@ -302,8 +308,6 @@
         return type === 'function' || type === 'object' && !!obj;
     }
 
-    _.isArray = function(obj) {
-        return typeof obj === "array";
-    }
+    _.isArray = nativeIsArray;
 
 }.call(this));
