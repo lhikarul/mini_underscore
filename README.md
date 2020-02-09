@@ -29,6 +29,7 @@
 [pick](#pick)</br>
 [defaults](#defaults)</br>
 [clone](#clone)</br>
+[has](#has)</br>
 
 ## collections 相關
 
@@ -229,4 +230,13 @@ _.defaults(iceCream, {flavor: "vanilla", sprinkles: "lots"});
 ```
 _.clone({name: 'moe'});
 => {name: 'moe'};
+```
+
+<h4 id="has">_.has(object,key)</h4>
+
+物件是否包含給定的 key 值。
+
+```
+_.has({a: 1, b: 2, c: 3}, "b");
+=> true
 ```

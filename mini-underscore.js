@@ -299,6 +299,11 @@
         return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
     };
 
+    _.has = function(obj, key) {
+        return obj != null && hasOwnProperty.call(obj, key);
+    };
+    
+
     _.isFunction = function (obj) {
         return typeof obj === 'function'
     }
