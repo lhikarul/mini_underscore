@@ -188,6 +188,11 @@ _.invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 
 <h4 id="findKey">_.findKey(object, predicate)</h4>
 
+```
+_.findKey({one: 1, two: 2}, function(num){ return num % 2 == 0; });
+---> two
+```
+
 <h4 id="extend">_.extend(destination,sources)</h4>
 複製source對像中的所有屬性覆蓋到destination對像上，並且返回 destination 對象. 複製是按順序的, 所以後面的對象屬性會把前面的對象屬性覆蓋掉(如果有重複).
 
