@@ -15,7 +15,7 @@
 [reduceRight](#reduceRight)</br>
 [filter](#filter)</br>
 [find](#find)</br>
-[where](#where)
+[where](#where)</br>
 
 ### array
 [flatten](#flatten)</br>
@@ -33,6 +33,7 @@
 [defaults](#defaults)</br>
 [clone](#clone)</br>
 [has](#has)</br>
+[matcher](#matcher)</br>
 [isMatch](#isMatch)</br>
 
 ## collections 相關
@@ -109,7 +110,7 @@ _.find({one:1,two:22,three:8}, function(num){ return num % 2 == 0; });
 
 ```
 
-<h4 id="where>">_.where(list,properties)</h4>
+<h4 id="where">_.where(list,properties)</h4>
 
 遍歷 list 中的每個值，返回一個陣列，這個陣列的元素含有 properties 所列出的 key/value。
 
@@ -169,7 +170,7 @@ _.mapObject({start: 5, end: 12}, function(val, key) {
 => {start: 10, end: 17}
 ```
 
-<h4 id="pairs>">_.pairs(object)</h4>
+<h4 id="pairs">_.pairs(object)</h4>
 將一個物件轉變為 [key,value] 的陣列
 
 ```
@@ -270,7 +271,16 @@ var ready = _.matcher({selected: true, visible: true});
 var readyToGoList = _.filter(list, ready);
 ```
 
-<h4 id="isMatch>">_.isMatch(object,properties)</h4>
+<h4 id="matcher">_.matcher(attrs)</h4>
+
+返回一個函數，這個函數用來檢查給定的物件是否包含 attrs 的 key/value 值。
+
+```
+var ready = _.matcher({selected: true, visible: true});
+var readyToGoList = _.filter(list, ready);
+```
+
+<h4 id="isMatch">_.isMatch(object,properties)</h4>
 
 檢查 properties 中的 key/value 是否包含在 object 內
 
