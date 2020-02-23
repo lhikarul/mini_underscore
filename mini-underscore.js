@@ -137,6 +137,10 @@
         if (key !== void 0 && key !== -1) return obj[key];
     }
 
+    _.where = function(obj,attrs) {
+        return _.filter(obj, _.matcher(attrs));
+    }
+
     // ----- Arrays ----- //
     function createPredicateIndexFinder(dir) {
         return function (array,predicate,context) {
@@ -302,7 +306,31 @@
     _.has = function(obj, key) {
         return obj != null && hasOwnProperty.call(obj, key);
     };
+
+    _.matcher = function(attrs) {
+        attrs = _.extendOwn({}, attrs);
+        return function (obj) {
+            return _.isMatch(obj,attrs);
+        }
+    }
     
+    _.isMatch = function(object,attrs) {
+        var keys = _.keys(attrs), length = keys.length;
+
+        if (object == null) return !length;
+
+        var obj = Object(object);
+
+        for (var i = 0; i < length; i++) {
+            var key = keys[i];
+            
+            if (attrs[key] !== obj[key] || !(key in obj)) return false;
+
+        }
+
+        return true;
+
+    }
 
     _.isFunction = function (obj) {
         return typeof obj === 'function'

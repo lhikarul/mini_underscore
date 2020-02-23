@@ -13,6 +13,7 @@
 [reduceRight](#reduceRight)</br>
 [filter](#filter)</br>
 [find](#find)</br>
+[where](#where)
 
 ### array
 [flatten](#flatten)</br>
@@ -30,6 +31,7 @@
 [defaults](#defaults)</br>
 [clone](#clone)</br>
 [has](#has)</br>
+[isMatch](#isMatch)</br>
 
 ## collections 相關
 
@@ -103,6 +105,17 @@ _.find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
 _.find({one:1,two:22,three:8}, function(num){ return num % 2 == 0; });
 => 22
 
+```
+
+<h4 id="where>">_.where(list,properties)</h4>
+
+遍歷 list 中的每個值，返回一個陣列，這個陣列的元素含有 properties 所列出的 key/value。
+
+```
+  const listOfPlays = [{author: "Shakespeare", year: 1611},{title: "The Tempest"}];    
+  var a = _.where(listOfPlays, {author: "Shakespeare", year: 1611});
+  
+  => [{author: "Shakespeare", year: 1611}]
 
 ```
 
@@ -244,4 +257,24 @@ _.clone({name: 'moe'});
 ```
 _.has({a: 1, b: 2, c: 3}, "b");
 => true
+```
+
+<h4 id="matcher">_.matcher(attrs)</h4>
+
+返回一個函數，這個函數用來檢查給定的物件是否包含 attrs 的 key/value 值。
+
+```
+var ready = _.matcher({selected: true, visible: true});
+var readyToGoList = _.filter(list, ready);
+```
+
+<h4 id="isMatch>">_.isMatch(object,properties)</h4>
+
+檢查 properties 中的 key/value 是否包含在 object 內
+
+```
+var stooge = {name: 'moe', age: 32};
+_.isMatch(stooge, {age: 32});
+=> true
+
 ```
