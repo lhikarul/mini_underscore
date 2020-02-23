@@ -4,6 +4,8 @@
 
 分析 underscore 的源碼， 理解不同的 API 函式內部原理，並實作一個 mini-underscore。
 
+[underscore open source](https://github.com/jashkenas/underscore)
+
 ## 目錄
 
 ### collections
